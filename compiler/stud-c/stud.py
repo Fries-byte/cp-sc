@@ -39,7 +39,6 @@ alias_command = f'function studc {{ python "{script_path}" $args }}\n'
 if not os.path.exists(powershell_profile):
     open(powershell_profile, "w").close()
 
-# Check if alias already exists to avoid duplicates
 with open(powershell_profile, "r+", encoding="utf-8") as file:
     content = file.read()
     if alias_command not in content:
