@@ -5,7 +5,8 @@ a compiler for pisted to replace pythons inerpreter, you have to download Piargs
 When you use the pistud interpreter, it converts it into python code and runs that code, but when you use the compiler the interpreter converts it into python code and runs it to check for errors before running the compiler and converts it into an exe file <br>
 
 ### Interpreter:
-![Showcase 1](https://github.com/user-attachments/assets/ed9ef2e4-c4b2-4ec6-af43-5ec75f1ea22a)
+![Showcase 1](https://github.com/user-attachments/assets/2e8832db-f59b-46ea-b55f-d3bea6e14346)
+
 <br>
 ### Compiler:
 ![Showcase 2](https://github.com/user-attachments/assets/8057f4f6-4d93-4e8f-b174-0263496f4083)
