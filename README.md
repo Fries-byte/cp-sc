@@ -1,4 +1,4 @@
-# stud-c
+# Compile PiStud | studc
 a compiler for pisted to replace pythons inerpreter, you have to download Piargs to get the compiler, you can go in Fries-byte > Pistud > ReadMe > Piargs to download it, the compiler is still in development and not bug free
 
 # How it works
