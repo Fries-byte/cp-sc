@@ -11,10 +11,11 @@ When you use the pistud interpreter, it converts it into python code and runs th
 ![Showcase 2](https://github.com/user-attachments/assets/8057f4f6-4d93-4e8f-b174-0263496f4083)
 
 <br><br>
-If the compiler does not work, then use this command in your terminal, remove the 'filename' to your main file name (Windows)
+If the compile does not work, do this insted (alternative):
 ```
-Remove-Item filename.spec -Force
+studc c:/users/%USERNAME%/FOLDER/filename.py
 ```
+
 <br>
 This program currently works on Windows only
 
