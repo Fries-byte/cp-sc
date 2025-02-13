@@ -13,9 +13,14 @@ When you use the pistud interpreter, it converts it into python code and runs th
 ![Showcase 2](https://github.com/user-attachments/assets/8057f4f6-4d93-4e8f-b174-0263496f4083)
 
 <br><br>
-If the compile does not work, do this insted (alternative):
+# How to use
+There are two type of compilers, the clean one and the developer one, for clean one use piargs, do 
 ```
-studc c:/users/%USERNAME%/FOLDER/filename.py
+ping install studc
+```
+but if you want the developer version and create your own, do (in terminal)
+```
+git clone https://github.com/Fries-byte/cp-sc
 ```
 
 <br>
