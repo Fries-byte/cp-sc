@@ -25,10 +25,16 @@ ping install studc
 ```
 <br>
 but if you want the developer version and create your own, do (in terminal)
+
 ```
 git clone https://github.com/Fries-byte/cp-sc
 ```
 
+to compile the file, use 
+```
+python runtime.py filename.py
+```
+and replace "filename" with the file you want to compile
 <br>
 This program currently works on Windows only (i think)
 
