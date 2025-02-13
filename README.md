@@ -1,5 +1,5 @@
 # Compile PiStud | studc
-a compiler for pisted to replace pythons inerpreter, you have to download Piargs to get the compiler, you can go in Fries-byte > Pistud > ReadMe > Piargs to download it, the compiler is still in development and not bug free
+a compiler for pisted to replace pythons inerpreter, you have to [download Piargs](https://github.com/Fries-byte/pistud/raw/refs/heads/main/exe/piargs.exe) to get the compiler, the compiler is still in development and not bug free
 
 # How it works
 When you use the pistud interpreter, it converts it into python code and runs that code, but when you use the compiler the interpreter converts it into python code and runs it to check for errors before running the compiler and converts it into an exe file <br>
