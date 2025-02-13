@@ -14,17 +14,23 @@ When you use the pistud interpreter, it converts it into python code and runs th
 
 <br><br>
 # How to use
+download pyinstaller before using, since its code is pyinstaller included (compiler is not the same as pyinstaller)
+```
+
+```
+after you've downloaded it, here are some options to choose <br>
 There are two type of compilers, the clean one and the developer one, for clean one use piargs, do 
 ```
 ping install studc
 ```
+<br>
 but if you want the developer version and create your own, do (in terminal)
 ```
 git clone https://github.com/Fries-byte/cp-sc
 ```
 
 <br>
-This program currently works on Windows only
+This program currently works on Windows only (i think)
 
 # License
 the compiler is open source and free for everyone, read the [license](https://github.com/fries-byte/pistud?tab=License-1-ov-file) and [security policy](https://github.com/fries-byte/pistud?tab=security-ov-file) to know what you may and may not use or do with our code.
