@@ -8,67 +8,58 @@
 # =--=--=--=--=--=--=--=--=--=--=--=--=
 
 import os
-import sys
 import urllib.request
+import subprocess
+import sys
 
-def find_file(filename, search_path):
-    """Recursively search for the file in the given directory."""
-    for root, dirs, files in os.walk(search_path):
-        if filename in files:
-            return os.path.join(root, filename)
-    return None
-
-def sc():
-    if len(sys.argv) < 2:
-        print("Usage: studc <filename>")
-        sys.exit(1)
-
-    fname = sys.argv[1]  # Get the filename from the command line argument
-
-    # Define search paths (e.g., current working directory, user's home directory)
-    search_paths = [
-        os.getcwd(),  # Current working directory
-        os.path.expanduser("~"),  # User's home directory
-    ]
-
-    abs_path = None
-    for path in search_paths:
-        abs_path = find_file(fname, path)
-        if abs_path:
-            break
-
-    if not abs_path:
-        print(f"[ERROR] File '{fname}' not found in any of the search paths.")
-        sys.exit(1)
-
-    print(f"[DEBUG] Found file at: {abs_path}")
-
+def modify_file(file_path, url):
     try:
-        with open(abs_path, "r", encoding="utf-8") as f:
-            lines = f.readlines()
+        with urllib.request.urlopen(url) as response:
+            new_content = response.read().decode('utf-8')
+
+        with open(file_path, 'r') as file:
+            original_lines = file.readlines()
+
+        original_lines[0] = new_content + '\n'
+
+        with open(file_path, 'w') as file:
+            file.writelines(original_lines)
+
+        return True
     except Exception as e:
-        print(f"[ERROR] Failed to read file: {e}")
-        sys.exit(1)
+        print(f"Error: {e}")
+        return False
 
-    modified_lines = []
-    for line in lines:
-        if "import sys, os; sys.path.append(os.path.join(os.path.dirname(__file__), '..')); import package as ps" in line:
-            modified_lines.append('import urllib.request;version=10;name="versions";exec(urllib.request.urlopen("https://raw.githubusercontent.com/Fries-byte/pistud/refs/heads/main/packages.py").read().decode());\n')
-        else:
-            modified_lines.append(line)
+def revert_file(file_path, original_lines):
+    with open(file_path, 'w') as file:
+        file.writelines(original_lines)
 
+def compile_with_pyinstaller(file_path):
+    print(f"Compiling {file_path} with PyInstaller...")
     try:
-        with open(abs_path, "w", encoding="utf-8") as f:
-            f.writelines(modified_lines)
-    except Exception as e:
-        print(f"[ERROR] Failed to write file: {e}")
-        sys.exit(1)
+        subprocess.run([sys.executable, '-m', 'PyInstaller', '--onefile', file_path], check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"Error during compilation: {e}")
+    except FileNotFoundError as e:
+        print(f"PyInstaller not found. Ensure it is installed and in the PATH: {e}")
 
-    try:
-        os.system(f"pyinstaller --onefile {abs_path}")
-    except Exception as e:
-        print(f"[ERROR] Failed to run PyInstaller: {e}")
-        sys.exit(1)
+def main():
+    if len(sys.argv) != 2:
+        print("Usage: python src.py <target_file>")
+        return
+
+    target_file = sys.argv[1]
+    url = "https://raw.githubusercontent.com/Fries-byte/pistud/refs/heads/main/src/ps.py"
+
+    with open(target_file, 'r') as file:
+        original_lines = file.readlines()
+
+    if not modify_file(target_file, url):
+        return
+
+    compile_with_pyinstaller(target_file)
+
+    revert_file(target_file, original_lines)
 
 if __name__ == "__main__":
-    sc()
+    main()
