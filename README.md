@@ -16,7 +16,7 @@ When you use the pistud interpreter, it converts it into python code and runs th
 # How to use
 download pyinstaller before using, since its code is pyinstaller included (compiler is not the same as pyinstaller)
 ```
-
+pip install pyinstaller
 ```
 after you've downloaded it, here are some options to choose <br>
 There are two type of compilers, the clean one and the developer one, for clean one use piargs, do 
