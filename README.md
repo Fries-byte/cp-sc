@@ -36,7 +36,8 @@ python runtime.py filename.py
 ```
 and replace "filename" with the file you want to compile
 <br>
-This program currently works on Windows only (i think)
+This program currently works on Windows only (i think).
+Use loop and set it on 0 to keep the window open
 
 # License
 the compiler is open source and free for everyone, read the [license](https://github.com/fries-byte/pistud?tab=License-1-ov-file) and [security policy](https://github.com/fries-byte/pistud?tab=security-ov-file) to know what you may and may not use or do with our code.
